@@ -1,7 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 import { parseApiError } from '../helper/error';
-import { getCookie } from '../utils/cookie';
-import { AUTH_COOKIE_CONFIG, BASE_URL } from '../constant/common';
+import {  BASE_URL } from '../constant/common';
 
 axios.interceptors.request.use(
   async (config) => {

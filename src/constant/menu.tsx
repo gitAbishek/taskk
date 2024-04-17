@@ -6,6 +6,7 @@ interface SubMenu {
   name: string;
   src: ReactNode; 
   href: string;
+  gap: boolean;
 }
 
 export interface MenuItem {
@@ -13,6 +14,7 @@ export interface MenuItem {
   name: string;
   src: ReactNode; 
   href: string;
+  gap?: boolean;
   subMenu?: SubMenu[]; // Making 'subMenu' property optional
 }
 

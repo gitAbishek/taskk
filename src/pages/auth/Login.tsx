@@ -53,8 +53,8 @@ const Login: React.FC = () => {
       setCookie({cookieName:AUTH_COOKIE_CONFIG.BEARER_TOKEN, value: jwtToken, expiresIn: 1})
       showSuccessMessage(getValue(response, "message"));
       setIsLoggedIn(true)
-    } catch (error:Error) {
-      showErrorMessage(error.message);
+    } catch (error) {
+      showErrorMessage(getValue(error, 'message'));
     }
   };
 

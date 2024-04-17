@@ -57,7 +57,7 @@ const Navbar = () => {
           size={24}
           className="hover:cursor-pointer"
         /> */}
-        <img src={userImage} alt="logo" className="h-8 w-8" />
+        <img src={userImage} alt="logo" className="h-8 w-8 hover:cursor-pointer"  />
       </div>
 
       {open && (
