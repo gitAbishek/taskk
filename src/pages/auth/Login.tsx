@@ -11,8 +11,7 @@ import { setCookie } from "../../utils/cookie";
 import { useAuthContext } from "../../hook/contextConsumer.hooks";
 
 const Login: React.FC = () => {
-
-  const {setIsLoggedIn} = useAuthContext()
+  const { setIsLoggedIn } = useAuthContext();
 
   const [loginAccountData, setLoginAccountData] = useState({
     login_id: "",
@@ -49,12 +48,17 @@ const Login: React.FC = () => {
         return;
       }
       const response = await loginAccount(loginAccountData);
-      const jwtToken = getValue(response, 'data[0].jwt_token')
-      setCookie({cookieName:AUTH_COOKIE_CONFIG.BEARER_TOKEN, value: jwtToken, expiresIn: 1})
-      showSuccessMessage(getValue(response, "message"));
-      setIsLoggedIn(true)
+      const jwtToken = getValue(response, "data[0].jwt_token");
+      const success_message = getValue(response, "data[0].return_msg");
+      setCookie({
+        cookieName: AUTH_COOKIE_CONFIG.BEARER_TOKEN,
+        value: jwtToken,
+        expiresIn: 1,
+      });
+      showSuccessMessage(success_message);
+      setIsLoggedIn(true);
     } catch (error) {
-      showErrorMessage(getValue(error, 'message'));
+      showErrorMessage(getValue(error, "message"));
     }
   };
 
